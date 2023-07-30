@@ -2,7 +2,7 @@
 import { React, useContext } from "react";
 
 // Components
-import LoginDialogue from "./account/LoginDialogue";
+import LoginDialogue from "./loginaccount/LoginDialogue";
 import { AppBar, Toolbar, Box, styled } from '@mui/material';
 import ChatDialogue from "./Chat/ChatDialogue";
 

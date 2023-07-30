@@ -6,7 +6,7 @@ import { EmojiEmotionsOutlined, AttachFile, Mic } from '@mui/icons-material';
 
 import { uploadFile } from '../../../service/api';
 
-const Container = styled(Box)`
+const BoxContainer = styled(Box)`
     height: 55px;
     background: #ededed;
     display: flex;
@@ -20,13 +20,13 @@ const Container = styled(Box)`
     }
 `
 
-const Search = styled(Box)`
+const BoxSearch = styled(Box)`
     background-color: #FFFFFF;
     border-radius: 18px;
     width: calc(94% - 100px);
 `
 
-const InputField = styled(InputBase)`
+const InputBaseField = styled(InputBase)`
     width: 100%;
     padding: 20px;
     height: 20px;
@@ -61,7 +61,7 @@ function Footer({ sendText, setValue, value, file, setFile, setImage }) {
     }
 
     return (
-        <Container>
+        <BoxContainer>
             <EmojiEmotionsOutlined />
             <label htmlFor='fileInput'>
                 <ClipIcon />
@@ -72,16 +72,16 @@ function Footer({ sendText, setValue, value, file, setFile, setImage }) {
                 style={{display: 'none'}}
                 onChange={(e) => onFileChange(e)}
             />
-            <Search>
-                <InputField 
+            <BoxSearch>
+                <InputBaseField 
                 placeholder='Type a message'
                 onChange={(e) => setValue(e.target.value)}
                 onKeyPress={ (e) => sendText(e) }
                 value={value}
                  />
-            </Search>
+            </BoxSearch>
             <Mic />
-        </Container>
+        </BoxContainer>
     )
 }
 

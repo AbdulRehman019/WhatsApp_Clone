@@ -10,17 +10,17 @@ import Message from './Message';
 import Footer from './Footer';
 // import { IncomingMessage } from 'http';
 
-const Wrapper = styled(Box)`
+const WrapperBox = styled(Box)`
     background-image: url(${'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'});
     background-size: 50%;
 `
 
-const Component = styled(Box)`
+const BoxComponent = styled(Box)`
     height: 80vh;
     overflow-y: scroll;
 `
 
-const Container = styled(Box)`
+const BoxContainer = styled(Box)`
     padding: 1px 80px;
 `
 
@@ -98,18 +98,18 @@ function Messages({ person, conversation }) {
 
     return (
         <>
-        <Wrapper>
-            <Component>
+        <WrapperBox>
+            <BoxComponent>
                 {
                     messages && messages.map((message) => {
                         return (
-                            <Container ref={scrollRef}>
+                            <BoxContainer ref={scrollRef}>
                                 <Message message={message} />
-                            </Container>
+                            </BoxContainer>
                         )
                     })
                 }
-            </Component>
+            </BoxComponent>
             <Footer 
                 sendText={sendText}
                 setValue={setValue}
@@ -118,7 +118,7 @@ function Messages({ person, conversation }) {
                 setFile={setFile}
                 setImage={setImage}
             />
-        </Wrapper>
+        </WrapperBox>
         </>
     ) 
 }

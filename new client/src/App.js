@@ -2,7 +2,7 @@
 import React  from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import './App.css';
-import Messenger from './components/Messenger';
+import Messenger from './components/MessengerFile';
 import AccountProvider from './context/AccountProvider';
 
 

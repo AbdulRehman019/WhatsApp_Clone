@@ -2,19 +2,19 @@
 import { React, useContext } from "react";
 import { Dialog, styled, Box, Typography, List, ListItem, useStepContext } from '@mui/material';
 
-import { qrCodeImage } from "../../constants/data";
+import { qrCodeImage } from "../../allconstants/data";
 import { AccountContext } from "../../context/AccountProvider";
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import addUser from "../../service/api.js";
 
-const QRCode = styled("img")({
+const MyQRCode = styled("img")({
     height: 264,
     width: 264,
     margin: "50px 0 0 50px"
 })
 
-const Title = styled(Typography)`
+const MyTitle = styled(Typography)`
     font-size: 26px;
     color: #525252;
     font-weight: 300;
@@ -22,7 +22,7 @@ const Title = styled(Typography)`
     margin-bottom: 25px;
 `
 
-const StyledList = styled(List)`
+const NewStyledList = styled(List)`
     & > li {
         padding: 0;
         margin-top: 15px;
@@ -32,7 +32,7 @@ const StyledList = styled(List)`
     }
 `
 
-const dialogStyle = {
+const newDialogStyle = {
     height: "95%",
     width: "60%",
     marginTop: "12%",
@@ -42,11 +42,11 @@ const dialogStyle = {
     overflow: "hidden"
 }
 
-const Component = styled(Box)`
+const NewComponent = styled(Box)`
     display: flex;
 `
 
-const Container = styled(Box)`
+const NewContainer = styled(Box)`
     padding: 56px 0 56px 56px;
 `
 
@@ -69,19 +69,19 @@ function LoginDialogue() {
     return (
         <Dialog 
             open={true}
-            PaperProps={{sx: dialogStyle}}
+            PaperProps={{sx: newDialogStyle}}
             hideBackdrop={true}>
-            <Component>
-                <Container>
-                    <Title>Use WhatsApp on your computer</Title>
-                    <StyledList>
+            <NewComponent>
+                <NewContainer>
+                    <MyTitle>Use WhatsApp on your computer</MyTitle>
+                    <NewStyledList>
                         <ListItem>1. Open WhatsApp on your Computer</ListItem>
                         <ListItem>2. Tap Menu Settings and select Whatsapp Web.</ListItem>
                         <ListItem>3. Point your phone to this screen to capture the code.</ListItem>
-                    </StyledList>
-                </Container>
+                    </NewStyledList>
+                </NewContainer>
                 <Box sytle={{position: 'relative'}}>
-                    <QRCode src={qrCodeImage} alt="barcode-img" />
+                    <MyQRCode src={qrCodeImage} alt="barcode-img" />
                     <Box style={{position: 'absolute', top: '50%', transform: 'translateX(25%)'}}>
                         <GoogleLogin 
                             onSuccess={onLoginSuccess}
@@ -89,7 +89,7 @@ function LoginDialogue() {
                         />
                     </Box>
                 </Box>
-            </Component>
+            </NewComponent>
         </Dialog>
     )
 }

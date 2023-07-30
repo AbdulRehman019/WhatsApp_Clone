@@ -7,9 +7,9 @@ import { formatDate, downloadMedia } from "../../../utils/common-utils";
 
 import { AccountContext } from "../../../context/AccountProvider";
 import GetAppIcon from '@mui/icons-material/GetApp';
-import { iconPDF } from '../../../constants/data';
+import { iconPDF } from '../../../allconstants/data';
 
-const Own = styled(Box)`
+const OwnBox = styled(Box)`
     background: #dcf8c6;
     max-width: 60%;
     margin-left: auto;
@@ -20,7 +20,7 @@ const Own = styled(Box)`
     word-break: break-word; 
 `
 
-const Wrapper = styled(Box)`
+const WrapperBox = styled(Box)`
     background: #FFFFFF;
     max-width: 60%;
     padding: 5px;
@@ -30,12 +30,12 @@ const Wrapper = styled(Box)`
     word-break: break-word; 
 `
 
-const Text = styled(Typography)`
+const StyledText = styled(Typography)`
     font-size: 14px;
     padding: 0 25px 0 5px;
 `
 
-const Time = styled(Typography)`
+const StyledTime = styled(Typography)`
     font-size: 10px;
     color: #919191;
     word-break: keep-all;
@@ -50,17 +50,17 @@ function Message({ message }) {
         <>
             {
                 account.sub === message.senderId ?
-                    <Own>
+                    <OwnBox>
                         {
                             message.type === 'file' ? <ImageMessage message={message} /> : <TextMessage message={message} />
                         }
-                    </Own>
+                    </OwnBox>
                     :
-                    <Wrapper>
+                    <WrapperBox>
                         {
                             message.type === 'file' ? <ImageMessage message={message} /> : <TextMessage message={message} />
                         }
-                    </Wrapper>
+                    </WrapperBox>
             }
         </>
     )
@@ -79,13 +79,13 @@ const ImageMessage = ({ message }) => {
                     <img style={{ width: 300, height: '100%', objectFit: 'cover' }} src={message.text} alt={message.text} />
             }
 
-            <Time style={{ position: 'absolute', bottom: 0, right: 0 }}>
+            <StyledTime style={{ position: 'absolute', bottom: 0, right: 0 }}>
                 <GetAppIcon
                     onClick={(e) => downloadMedia(e, message.text)}
                     style={{ marginRight: 10, border: '1px solid grey', borderRadius: '50%' }}
                     fontSize="small"
                 />
-                {formatDate(message.createdAt)}</Time>
+                {formatDate(message.createdAt)}</StyledTime>
         </Box>
 
     )
@@ -94,8 +94,8 @@ const ImageMessage = ({ message }) => {
 const TextMessage = ({ message }) => {
     return (
         <>
-            <Text>{message.text}</Text>
-            <Time>{formatDate(message.createdAt)}</Time>
+            <StyledText>{message.text}</StyledText>
+            <StyledTime>{formatDate(message.createdAt)}</StyledTime>
         </>
     )
 }
